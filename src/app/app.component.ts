@@ -8,9 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   public title = 'sample-formular';
-
   public formGroup!: FormGroup;
-  public submittedBeforeCheck = false;
 
   constructor(private formBuiler: FormBuilder) {}
 
