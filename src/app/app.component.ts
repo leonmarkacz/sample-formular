@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   public title = 'sample-formular';
 
   public formGroup!: FormGroup;
+  public submittedBeforeCheck = false;
 
   constructor(private formBuiler: FormBuilder) {}
 
@@ -21,6 +22,11 @@ export class AppComponent implements OnInit {
 
   onSubmit(event: Event): void {
     event.preventDefault();
-    console.log(this.formGroup.value);
+
+    if (this.formGroup.get('formControlCheckbox')?.pristine) {
+      this.formGroup.get('formControlCheckbox')?.markAsTouched();
+    }
+
+    console.log(this.formGroup.get('formControlCheckbox'));
   }
 }
